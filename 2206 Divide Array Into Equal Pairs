@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool divideArray(vector<int>& nums) {
+        int n=nums.size();
+        bool pairs = true ;
+        int np,npa;
+        if(n%2 == 0){
+            int np= n/2;
+            npa = 0;
+            sort(nums.begin(),nums.end());
+            for(int i = 0; i<n-1;i++){
+                if(nums[i]==nums[i+1]){
+                    npa++;
+                    i++;
+                }
+            }
+            if(np==npa){
+             pairs = true;
+         }
+            else {
+                pairs= false;
+            }
+         
+        }
+        
+                
+       return pairs; 
+    }
+};
