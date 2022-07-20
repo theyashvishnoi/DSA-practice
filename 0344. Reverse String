@@ -1,0 +1,17 @@
+// c++ solution using recursion
+class Solution {
+public:
+    
+    void stSize( vector<char>& s, int i, int n){
+        if(i>=n){ // eliminate the function when I goes more than n
+            return; 
+        }
+        swap(s[i],s[n]); // otherwise swap the first and last element of string
+        stSize(s, (i+1),(n-1)); // increase I with one and decrease n with one.
+    }
+    
+    void reverseString(vector<char>& s) {
+        int n =s.size(), i = 0; //initialize I = 0 and n equals to size of string
+        stSize(s,i,n-1); // call the recursive function by passing string and starting and ending point from and to you want to reverse the string
+    }
+};
