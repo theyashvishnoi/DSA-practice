@@ -1,0 +1,33 @@
+Question - https://leetcode.com/problems/sort-characters-by-frequency/
+code  - 
+
+
+
+
+class Solution {
+public:
+    string frequencySort(string s) {
+        
+        //create a pair of integer and character to store occurences of each character on the index of its ASCII value.
+        
+        vector<pair<int,char>> hash('z'+1, {0,0});
+        
+        //traverse over the array and increase the frequency of the current character in the pair. 
+        for(char c:s){
+            hash[c] = {hash[c].first+1,c};
+        }
+        // sort the pair according to frequencies of the characters in given string
+        sort(hash.begin(), hash.end());
+        
+        // make a empty resultant string
+        string res = "";
+        
+        // traverse over the pair and print charters to the front of resultant string. according to their frequency stored in the pair
+        for(auto p:hash){
+            res = string(p.first,p.second)+res;
+        }
+        
+        //return resultant string
+        return res;
+    }
+};
